@@ -14,28 +14,34 @@ if (!rootEl) {
   const isReport = pathname.startsWith('/report');
 
   const App = () => {
+    // pick the page component based on pathname
+    let Page = LandingPage;
+
     if (isAdminCreate) {
-      // admin create page — allow creation when correct code is provided in the form
-      return <AdminCreate />;
+      Page = AdminCreate;
+    } else if (isAdminStaff) {
+      Page = isAuth ? AdminStaff : AdminLogin;
+    } else if (isAdminReports) {
+      Page = isAuth ? AdminReports : AdminLogin;
+    } else if (isReport) {
+      Page = ReportForm;
+    } else if (isAdminPath) {
+      Page = isAuth ? AdminDashboard : AdminLogin;
+    } else if (isSignIn) {
+      Page = SignIn;
+    } else if (isSignUp) {
+      Page = SignUp;
     }
-    if (isAdminStaff) {
-      if (isAuth) return <AdminStaff />;
-      return <AdminLogin />;
-    }
-    if (isAdminReports) {
-      if (isAuth) return <AdminReports />;
-      return <AdminLogin />;
-    }
-    if (isReport) return <ReportForm />;
-    if (isAdminPath) {
-      if (isAuth) {
-        return <AdminDashboard />;
-      }
-      return <AdminLogin />;
-    }
-    if (isSignIn) return <SignIn />;
-    if (isSignUp) return <SignUp />;
-    return <LandingPage />;
+
+    // Render Navbar on all pages and the selected Page below it
+    return (
+      <>
+        <Navbar />
+        <div style={{marginTop: '1rem'}}>
+          <Page />
+        </div>
+      </>
+    );
   };
 
   if (ReactDOM.createRoot) {

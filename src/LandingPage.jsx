@@ -1,7 +1,6 @@
 const LandingPage = () => {
   return (
     <div className="landing-root">
-      <Navbar />
       <main className="hero">
         <div className="container hero-inner">
           <h1>Welcome to CampusCare</h1>

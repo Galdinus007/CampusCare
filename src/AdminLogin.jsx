@@ -5,7 +5,6 @@ const AdminLogin = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Demo-only credentials (do NOT use in production)
     const validUser = 'admin';
     const validPass = 'pas123';
 
