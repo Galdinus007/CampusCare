@@ -1,4 +1,11 @@
 const LandingPage = () => {
+  const [user, setUser] = React.useState(null);
+
+  React.useEffect(() => {
+    const u = sessionStorage.getItem('campus_user_auth');
+    setUser(u || null);
+  }, []);
+
   return (
     <div className="landing-root">
       <main className="hero">
@@ -6,7 +13,7 @@ const LandingPage = () => {
           <h1>Welcome to CampusCare</h1>
           <p className="lead">Connect, care and thrive — tools that help your campus community stay informed and supported.</p>
           <div className="hero-ctas">
-            <a className="btn-primary large" href="#signup">Sign up</a>
+            {!user && <a className="btn-primary large" href="/signup">Sign up</a>}
           </div>
         </div>
       </main>

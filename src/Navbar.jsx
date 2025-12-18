@@ -16,7 +16,6 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
 
   const navLinks = links || [
   { text: 'Home', href: '/' },
-  { text: 'Features', href: '#features' },
   { text: 'Report', href: '/report' },
   { text: 'Contact', href: '#contact' },
   { text: 'Admin', href: '/admin' }
@@ -40,7 +39,6 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
           ) : (
             <div style={{display:'flex', gap:'0.5rem'}}>
               <a className="btn-outline" href="/signin">Sign in</a>
-              <a className="btn-primary" href="/signup">Sign up</a>
             </div>
           )}
         </div>
