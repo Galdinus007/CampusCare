@@ -18,7 +18,7 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
   { text: 'Home', href: '/' },
   { text: 'Report', href: '/report' },
   { text: 'Contact', href: '#contact' },
-  { text: 'Admin', href: '/admin' }
+  ...(user ? [] : [{ text: 'Admin', href: '/admin' }])
   ];
 
   return (
