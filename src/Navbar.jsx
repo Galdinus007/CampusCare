@@ -2,23 +2,25 @@
 // global React
 const Navbar = ({ brand = 'CampusCare', links = null }) => {
   const [user, setUser] = React.useState(null);
+  const [isAdmin, setIsAdmin] = React.useState(false);
 
   React.useEffect(() => {
     const u = sessionStorage.getItem('campus_user_auth');
+    const adminAuth = sessionStorage.getItem('campus_admin_auth');
     setUser(u || null);
+    setIsAdmin(adminAuth === '1');
   }, []);
 
   const handleLogout = () => {
     sessionStorage.removeItem('campus_user_auth');
-    // reload to root
-    window.location.href = '/';
+    sessionStorage.removeItem('campus_admin_auth');
+    window.location.href = '/signin';
   };
 
   const navLinks = links || [
-  { text: 'Home', href: '/' },
-  { text: 'Report', href: '/report' },
-  { text: 'Contact', href: '/contact' },
-  ...(user ? [] : [{ text: 'Admin', href: '/admin' }])
+    { text: 'Home', href: '/home' },
+    { text: 'Report', href: '/report' },
+    { text: 'Contact', href: '/contact' }
   ];
 
   return (
@@ -31,9 +33,9 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
           ))}
         </nav>
         <div className="nav-actions">
-          {user ? (
+          {user || isAdmin ? (
             <div className="user-badge" style={{display:'flex', gap:'1rem', alignItems:'center'}}>
-              <span className="username">{user}</span>
+              <span className="username">{user || 'Admin'}</span>
               <button className="btn-outline" onClick={handleLogout}>Logout</button>
             </div>
           ) : (

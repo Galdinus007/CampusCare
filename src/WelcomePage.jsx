@@ -1,4 +1,6 @@
-const LandingPage = () => {
+// WelcomePage.jsx - Welcome/entry page with login/signup options
+// global React
+const WelcomePage = () => {
   const [user, setUser] = React.useState(null);
 
   React.useEffect(() => {
@@ -6,31 +8,38 @@ const LandingPage = () => {
     setUser(u || null);
   }, []);
 
+  if (user) {
+    // If user is already logged in, redirect to landing page
+    window.location.href = '/home';
+    return null;
+  }
+
   return (
     <div className="landing-root">
       <main className="hero">
         <div className="container hero-inner">
           <h1>CampusCare • வளாக கவனிப்பு</h1>
           <p className="lead">Connect, care and thrive — tools that help your campus community stay informed and supported.</p>
-          <div className="hero-ctas">
-            {user && <p style={{color:'rgba(255,255,255,0.8)'}}>Welcome, <strong>{user}</strong>!</p>}
-            {user && <a className="btn-primary large" href="/report">Submit a Report</a>}
+          
+          <div className="hero-ctas" style={{display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap'}}>
+            <a className="btn-primary large" href="/signin">Sign In</a>
+            <a className="btn-outline large" href="/signup">Create Account</a>
           </div>
         </div>
       </main>
 
       <section id="features" className="features container">
         <div className="feature">
-          <h3>Events</h3>
-          <p>Find and manage campus events in one place.</p>
+          <h3>For Students</h3>
+          <p>Submit reports, stay updated with announcements, and access campus resources all in one place.</p>
+        </div>
+        <div className="feature">
+          <h3>For Administrators</h3>
+          <p>Manage staff, review reports, and oversee campus operations efficiently.</p>
         </div>
         <div className="feature">
           <h3>Support</h3>
-          <p>Access resources and peer-support networks.</p>
-        </div>
-        <div className="feature">
-          <h3>Announcements</h3>
-          <p>Receive timely updates from your campus community.</p>
+          <p>Access resources and peer-support networks for your campus community.</p>
         </div>
       </section>
 
@@ -43,4 +52,4 @@ const LandingPage = () => {
   );
 };
 
-window.LandingPage = LandingPage;
+window.WelcomePage = WelcomePage;

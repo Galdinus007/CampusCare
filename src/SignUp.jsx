@@ -31,7 +31,7 @@ const SignUp = () => {
     // auto-sign in
     sessionStorage.setItem('campus_user_auth', username);
     setSuccess('Account created. Redirecting...');
-    setTimeout(() => { window.location.href = '/'; }, 800);
+    setTimeout(() => { window.location.href = '/home'; }, 800);
   };
 
   return (
