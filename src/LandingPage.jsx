@@ -7,7 +7,6 @@ const LandingPage = () => {
           <p className="lead">Connect, care and thrive — tools that help your campus community stay informed and supported.</p>
           <div className="hero-ctas">
             <a className="btn-primary large" href="#signup">Sign up</a>
-            <a className="btn-outline" href="#learn">Learn more</a>
           </div>
         </div>
       </main>

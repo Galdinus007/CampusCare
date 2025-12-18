@@ -15,7 +15,7 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
   };
 
   const navLinks = links || [
-  { text: 'Home', href: '#' },
+  { text: 'Home', href: '/' },
   { text: 'Features', href: '#features' },
   { text: 'Report', href: '/report' },
   { text: 'Contact', href: '#contact' },
