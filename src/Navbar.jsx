@@ -17,7 +17,7 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
   const navLinks = links || [
   { text: 'Home', href: '/' },
   { text: 'Report', href: '/report' },
-  { text: 'Contact', href: '#contact' },
+  { text: 'Contact', href: '/contact' },
   ...(user ? [] : [{ text: 'Admin', href: '/admin' }])
   ];
 
@@ -32,7 +32,7 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
         </nav>
         <div className="nav-actions">
           {user ? (
-            <div className="user-badge">
+            <div className="user-badge" style={{display:'flex', gap:'1rem', alignItems:'center'}}>
               <span className="username">{user}</span>
               <button className="btn-outline" onClick={handleLogout}>Logout</button>
             </div>

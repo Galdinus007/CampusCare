@@ -12,6 +12,7 @@ if (!rootEl) {
   const isAdminStaff = pathname.startsWith('/admin/staff');
   const isAdminReports = pathname.startsWith('/admin/reports');
   const isReport = pathname.startsWith('/report');
+  const isContact = pathname.startsWith('/contact');
 
   const App = () => {
     // pick the page component based on pathname
@@ -25,6 +26,8 @@ if (!rootEl) {
       Page = isAuth ? AdminReports : AdminLogin;
     } else if (isReport) {
       Page = ReportForm;
+    } else if (isContact) {
+      Page = Contact;
     } else if (isAdminPath) {
       Page = isAuth ? AdminDashboard : AdminLogin;
     } else if (isSignIn) {

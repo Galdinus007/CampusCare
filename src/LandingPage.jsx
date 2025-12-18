@@ -10,7 +10,8 @@ const LandingPage = () => {
     <div className="landing-root">
       <main className="hero">
         <div className="container hero-inner">
-          <h1>Welcome to CampusCare</h1>
+          <h1>CampusCare • வளாக கவனிப்பு
+          </h1>
           <p className="lead">Connect, care and thrive — tools that help your campus community stay informed and supported.</p>
           <div className="hero-ctas">
             {!user && <a className="btn-primary large" href="/signup">Sign up</a>}
