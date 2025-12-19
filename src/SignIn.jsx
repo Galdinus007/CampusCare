@@ -1,5 +1,4 @@
-// SignIn.jsx - unified login page for students and admins
-// global React
+
 const SignIn = () => {
   const [user, setUser] = React.useState('');
   const [password, setPassword] = React.useState('');

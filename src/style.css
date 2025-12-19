@@ -252,7 +252,10 @@ button:focus-visible {
 .admin-card h2 { margin-top: 0; margin-bottom: 0.6rem }
 .admin-card h3 { margin: 0.4rem 0 }
 
-/* Better aligned form + responsive layout for staff management */
+
+
+
+
 .staff-form {
   display: grid;
   grid-template-columns: 1fr;

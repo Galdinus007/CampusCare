@@ -1,5 +1,4 @@
-// Navbar.jsx - simple responsive navbar component (in-browser JSX)
-// global React
+
 const Navbar = ({ brand = 'CampusCare', links = null }) => {
   const [user, setUser] = React.useState(null);
   const [isAdmin, setIsAdmin] = React.useState(false);
@@ -24,9 +23,15 @@ const Navbar = ({ brand = 'CampusCare', links = null }) => {
   ];
 
   return (
+    
     <header className="navbar">
+      
       <div className="container nav-inner">
+      <img className="image" src="./srm.png" alt="logo"  style={{ width: "70px", height: "auto" }}/>
+
         <a className="brand" href="#">{brand}</a>
+
+        
         <nav className="nav-links" aria-label="Main navigation">
           {navLinks.map((l, i) => (
             <a key={i} className="nav-link" href={l.href}>{l.text}</a>
